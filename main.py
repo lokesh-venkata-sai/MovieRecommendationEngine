@@ -83,22 +83,7 @@ def myprofile():
     return redirect(url_for('index'))
 
 
-@app.route('/interestForm', methods = ['GET', 'POST'])
-def interestForm():
-    user=g.mail
-    result = request.form
-    print("result : ",result)
-    print("genre: ",result.getlist('genre'))
-    ob=interest()
-    save=ob.interestfunc(user,result.getlist('genre'))
-    if save==True:
 
-        print("saved")
-        return redirect(url_for("myprofile"))
-    else:
-
-        print("not saved")
-        return redirect(url_for("myprofile"))
 
 
 @app.before_request
