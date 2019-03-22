@@ -31,7 +31,7 @@ align-content: center;
 }
 
 .card{
-height: 390px;
+height: 500px;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
@@ -124,6 +124,19 @@ function checkpassword(theForm) {
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
 						<input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm password" required>
+					</div>
+					<h3 style="color: white">Interests:</h3>
+					<div class="" style="color: white" >
+                          <input type="checkbox" name="genre" value="Action">Action
+                          <input type="checkbox" name="genre" value="Adventure">Adventure
+                          <input type="checkbox" name="genre" value="Romance"> Romance<br>
+                          <input type="checkbox" name="genre" value="Comedy">comedy
+                          <input type="checkbox" name="genre" value="Fantasy">Fantasy
+                          <input type="checkbox" name="genre" value="Boat"> Drama
+                          <input type="checkbox" name="genre" value="Sci-Fi">Sci-Fi<br>
+                          <input type="checkbox" name="genre" value="Thriller">Thriller
+                          <input type="checkbox" name="genre" value="Horror">Horror
+                          <input type="checkbox" name="genre" value="Animation">Animation
 					</div>
 					{% if status == True %}
 						<p id="demo" style="color:green">Registered Successfully! </p>

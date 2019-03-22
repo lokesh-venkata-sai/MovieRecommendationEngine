@@ -34,7 +34,7 @@
         }
 
         .card{
-        height: 370px;
+        height: 450px;
         margin-top: auto;
         margin-bottom: auto;
         width: 500px;
@@ -45,11 +45,12 @@
         color: white;
         }
 
-        .input-group-prepend span{
-        width: 50px;
-        background-color: #FFC312;
-        color: black;
-        border:0 !important;
+        .input-group .input-text{
+            width:30%;
+            float:left;
+        }
+        .input-group .form-control{
+            width:70%;
         }
 
         input:focus{
@@ -98,30 +99,77 @@ function ValidateEmail(mailId)
 			<div class="card-header">
 				<h3 id="heading">My Profile</h3>
 			</div>
-			<div class="card-body">
+			<div class="card-body" style="color:white">
 					<div class="input-group">
-						<input type="text" class="form-control" value="username" readonly>
+                        <div class="input-text">User ID:</div>
+                        <input type="text" class="form-control" value={{user[0][0]}} readonly>
 					</div>
                 <br>
                     <div class="input-group">
-						<input type="text" class="form-control" value={{user}} readonly>
+                        <div class="input-text">User Name:</div>
+						 <input type="text" class="form-control" value={{user[0][1]}} readonly>
+					</div>
+                <br>
+                    <div class="input-group">
+						<div class="input-text">Email:</div>
+                        <input type="text" class="form-control" value={{user[0][2]}} readonly>
 
 					</div>
 					<div class="input-group" style="color: white">
                         <h3>Interests:</h3>
-						<form>
-                          <input type="checkbox" name="genre1" value="Action">Action
-                          <input type="checkbox" name="genre2" value="Adventure">Adventure
-                          <input type="checkbox" name="genre3" value="Romance"> Romance
-                          <input type="checkbox" name="genre4" value="Comedy">comedy
-                          <input type="checkbox" name="genre5" value="Fantasy">Fantasy
-                          <input type="checkbox" name="genre6" value="Boat"> Drama
-                          <input type="checkbox" name="genre7" value="Sci-Fi">Sci-Fi
-                          <input type="checkbox" name="genre8" value="Thriller">Thriller
-                          <input type="checkbox" name="genre9" value="Horror">Horror
-                          <input type="checkbox" name="genre9" value="Animation">Animation
+						<form action="interestForm" method="post">
+                            {% if user[0][4] == 1%}
+                                <input type="checkbox"  name="genre" value="Action" checked>Action
+                            {% else %}
+                                <input type="checkbox"  name="genre" value="Action">Action
+                            {% endif%}
+                            {% if user[0][5] == 1%}
+                                <input type="checkbox"  name="genre" value="Adventure" ckecked>Adventure
+                            {% else %}
+                                <input type="checkbox"  name="genre" value="Adventure">Adventure
+                            {% endif%}
+                            {% if user[0][11] == 1%}
+                                <input type="checkbox" name="genre" value="Romance" checked> Romance
+                            {% else %}
+                                <input type="checkbox" name="genre" value="Romance"> Romance
+                            {% endif%}
+                            {% if user[0][7] == 1%}
+                                <input type="checkbox" name="genre" value="Comedy" checked>comedy
+                            {% else %}
+                                <input type="checkbox" name="genre" value="Comedy">comedy
+                            {% endif%}
+                            {% if user[0][9] == 1%}
+                                <input type="checkbox" name="genre" value="Fantasy" checked>Fantasy
+                            {% else %}
+                                <input type="checkbox" name="genre" value="Fantasy">Fantasy
+                            {% endif%}
+                            {% if user[0][8] == 1%}
+                                <input type="checkbox" name="genre" value="Boat" checked> Drama
+                            {% else %}
+                                <input type="checkbox" name="genre" value="Boat"> Drama
+                            {% endif%}
+                            {% if user[0][12] == 1%}
+                                <input type="checkbox" name="genre" value="Sci-Fi" checked>Sci-Fi
+                            {% else %}
+                                <input type="checkbox" name="genre" value="Sci-Fi">Sci-Fi
+                            {% endif%}
+                            {% if user[0][13] == 1%}
+                                <input type="checkbox" name="genre" value="Thriller" checked>Thriller
+                            {% else %}
+                                <input type="checkbox" name="genre" value="Thriller">Thriller
+                            {% endif%}
+                            {% if user[0][10] == 1%}
+                                <input type="checkbox" name="genre" value="Horror" checked>Horror
+                            {% else %}
+                                <input type="checkbox" name="genre" value="Horror">Horror
+                            {% endif%}
+                            {% if user[0][6] == 1%}
+                                <input type="checkbox" name="genre" value="Animation" checked>Animation
+                            {% else %}
+                                <input type="checkbox" name="genre" value="Animation">Animation
+                            {% endif%}
                           <br><br>
-                          <input type="submit" value="Save" style="background-color:#FFC312">
+                          <input type="submit" value="Update" style="background-color:#FFC312">
                         </form>
 					</div>
 			</div>

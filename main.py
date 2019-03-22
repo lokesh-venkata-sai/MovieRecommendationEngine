@@ -4,6 +4,8 @@ from register import register
 import os
 from homefile import homefile
 from datetime import timedelta
+import pymysql
+from interestfile import interest
 
 app = Flask(__name__)
 
@@ -30,6 +32,7 @@ def loginForm():
         session.pop('mail', None)
         if y==True:
             session['mail'] = result['mailId']
+
             return redirect(url_for('home'))
     return render_template("index.html",login=True)
 
@@ -46,8 +49,10 @@ def home():
 @app.route('/registerForm', methods = ['GET', 'POST'])
 def registerForm():
         result=request.form
+        genre=result.getlist('genre')
         ob=register()
-        ans=ob.registerfunc(**result)
+        print(genre)
+        ans=ob.registerfunc(*genre,**result)
         email = result['mailId']
         if ans==True:
             status=True
@@ -59,10 +64,41 @@ def registerForm():
 @app.route('/myprofile')
 def myprofile():
     if g.mail:
-        #print(session.get("mailId"))
         user=session.get("mail")
+        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        cursor = db.cursor()
+        sql = "select * from users where email=%s"
+        value=(session.get("mail"))
+        try:
+            # Execute the SQL command
+            cursor.execute(sql,value)
+            # Fetch all the rows in a list of lists.
+            user = cursor.fetchall()
+            #print(user)
+        except:
+            print("Error: unable to fetch data")
+        db.close()
+        print("user values:",user)
         return render_template("myprofile.html",user=user)
     return redirect(url_for('index'))
+
+
+@app.route('/interestForm', methods = ['GET', 'POST'])
+def interestForm():
+    user=g.mail
+    result = request.form
+    print("result : ",result)
+    print("genre: ",result.getlist('genre'))
+    ob=interest()
+    save=ob.interestfunc(user,result.getlist('genre'))
+    if save==True:
+
+        print("saved")
+        return redirect(url_for("myprofile"))
+    else:
+
+        print("not saved")
+        return redirect(url_for("myprofile"))
 
 
 @app.before_request
