@@ -33,7 +33,3 @@ def get_ratings_matrix():
     ratings.columns = ratings.columns.astype('int32')
     ratings.index.name = "id"
     return ratings,movie_ids,user_ids
-
-
-ratings,movie_ids,user_ids = get_ratings_matrix()
-print(ratings.head())
