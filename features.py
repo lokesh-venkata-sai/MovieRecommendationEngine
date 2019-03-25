@@ -55,7 +55,9 @@ def get_features():
     movies_metadata["features_genres"] = movies_metadata["genres_list"].apply(features)
     features_dataframe = movies_metadata.loc[:, ['id', 'features_genres']]
     features_dataframe.set_index(['id'], inplace=True)
-    return features_dataframe
+    movie_ids = movies_metadata['id'].values
+    movie_ids = isput.astype(np.int)
+    return features_dataframe,movie_ids,np.array(list(set_genres))
 
 
 features_dataframe = get_features()
