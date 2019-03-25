@@ -4,8 +4,9 @@ import zipfile
 import pathlib
 import json
 
+# global variable
 set_genres = set()
-dict_genres = {}  # global variable
+dict_genres = {}
 
 
 def get_genres(x):
@@ -53,9 +54,9 @@ def get_features():
         dict_genres[item] = index
     movies_metadata["features_genres"] = movies_metadata["genres_list"].apply(features)
     features_dataframe = movies_metadata.loc[:, ['id', 'features_genres']]
-    features_dataframe.set_index(['id'],inplace=True)
+    features_dataframe.set_index(['id'], inplace=True)
     return features_dataframe
 
 
-features_dataframe  = get_features()
+features_dataframe = get_features()
 print(features_dataframe.head())
