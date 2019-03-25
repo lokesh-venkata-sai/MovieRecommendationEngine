@@ -31,6 +31,7 @@ def get_ratings_matrix():
     ratings = pd.DataFrame(data=matrix[1:, 1:], index=matrix[1:, 0], columns=matrix[0, 1:])
     ratings.index = ratings.index.astype('int32')
     ratings.columns = ratings.columns.astype('int32')
+    ratings.index.name = "id"
     return ratings
 
 
