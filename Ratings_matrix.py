@@ -32,8 +32,8 @@ def get_ratings_matrix():
     ratings.index = ratings.index.astype('int32')
     ratings.columns = ratings.columns.astype('int32')
     ratings.index.name = "id"
-    return ratings
+    return ratings,movie_ids,user_ids
 
 
-ratings = get_ratings_matrix()
+ratings,movie_ids,user_ids = get_ratings_matrix()
 print(ratings.head())
