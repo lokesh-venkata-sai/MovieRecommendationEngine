@@ -36,3 +36,4 @@ def get_ratings_matrix():
 
 
 ratings = get_ratings_matrix()
+print(ratings.head())
