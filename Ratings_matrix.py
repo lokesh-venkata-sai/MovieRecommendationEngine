@@ -24,9 +24,12 @@ def get_ratings_matrix():
         temp[var1] = var2
         matrix[i - 1] = temp
     matrix = matrix.transpose()
-    return matrix, movie_ids, user_ids
+    temp = np.arange(1, matrix.shape[0] + 1).reshape(matrix.shape[0], 1)
+    matrix = np.hstack([temp, matrix])
+    user_ids = np.insert(user_ids, 0, 0)
+    matrix = np.vstack([user_ids, matrix])
+    ratings = pd.DataFrame(data=matrix[1:, 1:], index=matrix[1:, 0], columns=matrix[0, 1:])
+    return ratings
 
 
-matrix, movie_ids, user_ids = get_ratings_matrix()
-print(matrix.shape)
-
+ratings = get_ratings_matrix()
