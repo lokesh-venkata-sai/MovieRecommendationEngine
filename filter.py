@@ -8,8 +8,10 @@ def filter():
     movie_ids_ratings = set(movie_ids_ratings)
     movie_ids_features = set(movie_ids_features)
     movies_common = movie_ids_features.intersection(movie_ids_ratings)
-    ratings = ratings.loc[list(movies_common), :]
-    # features_dataframe = features_dataframe.loc[list(movies_common), :]
+    movies_common = list(movies_common)
+    ratings = ratings.loc[movies_common, :]
+    movies_common = [str(i) for i in movies_common]
+    features_dataframe = features_dataframe.loc[movies_common,:]
     return features_dataframe, ratings, movies_common, user_ids
 
 
