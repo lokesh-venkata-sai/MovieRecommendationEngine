@@ -9,7 +9,7 @@ def get_ratings_matrix():
     if not (dir_ref.is_dir() and dir_ref.exists()):
         zip_ref = zipfile.ZipFile('the-movies-dataset.zip', 'r')
         zip_ref.extractall('./')
-    movies_dataset = pd.read_csv('./the-movies-dataset/ratings_small.csv')
+    movies_dataset = pd.read_csv('./the-movies-dataset/ratings_small.csv', low_memory=False)
     ratings = movies_dataset.values
     movie_ids = np.array(movies_dataset.iloc[:, 1].unique())
     no_movie_ids = movie_ids.max() + 1
@@ -32,4 +32,4 @@ def get_ratings_matrix():
     ratings.index = ratings.index.astype('int32')
     ratings.columns = ratings.columns.astype('int32')
     ratings.index.name = "id"
-    return ratings,movie_ids,user_ids
+    return ratings, movie_ids, user_ids
