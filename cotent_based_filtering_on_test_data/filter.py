@@ -1,5 +1,5 @@
-from features import get_features
-from Ratings_matrix import get_ratings_matrix
+from cotent_based_filtering_on_test_data.features import get_features
+from cotent_based_filtering_on_test_data.Ratings_matrix import get_ratings_matrix
 
 
 def filter():
