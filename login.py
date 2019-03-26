@@ -1,4 +1,3 @@
-from flask_wtf import Form
 import pymysql
 class login():
     def validateLogin(self,**data):

@@ -5,7 +5,7 @@ import os
 from homefile import homefile
 from datetime import timedelta
 import pymysql
-from interestfile import interest
+from interestfile import update
 
 app = Flask(__name__)
 

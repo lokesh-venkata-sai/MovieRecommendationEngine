@@ -100,24 +100,25 @@ function ValidateEmail(mailId)
 				<h3 id="heading">My Profile</h3>
 			</div>
 			<div class="card-body" style="color:white">
+                <form action="interestForm" method="post">
 					<div class="input-group">
                         <div class="input-text">User ID:</div>
-                        <input type="text" class="form-control" value={{user[0][0]}} readonly>
+                        <input type="text"   class="form-control" value={{user[0][0]}} readonly>
 					</div>
                 <br>
                     <div class="input-group">
                         <div class="input-text">User Name:</div>
-						 <input type="text" class="form-control" value={{user[0][1]}} readonly>
+						 <input type="text" id="username" name="username" class="form-control" value={{user[0][1]}} readonly>
 					</div>
                 <br>
                     <div class="input-group">
 						<div class="input-text">Email:</div>
-                        <input type="text" class="form-control" value={{user[0][2]}} readonly>
+                        <input type="text" id="mailId" name="mailId"  class="form-control" value={{user[0][2]}} readonly>
 
 					</div>
 					<div class="input-group" style="color: white">
                         <h3>Interests:</h3>
-						<form action="interestForm" method="post">
+
                             {% if user[0][4] == 1%}
                                 <input type="checkbox"  name="genre" value="Action" checked>Action
                             {% else %}
@@ -170,8 +171,9 @@ function ValidateEmail(mailId)
                             {% endif%}
                           <br><br>
                           <input type="submit" value="Update" style="background-color:#FFC312">
-                        </form>
+
 					</div>
+                </form>
 			</div>
 		</div>
 	</div>
