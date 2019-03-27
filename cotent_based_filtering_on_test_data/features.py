@@ -63,6 +63,9 @@ def get_features():
         dict_genres[item] = index
     movies_metadata["features_genres"] = movies_metadata["genres_list"].apply(features)
     movies_metadata.dropna(subset=['features_genres'], inplace=True)
+    movie_names = movies_metadata.loc[:, ['original_title', 'id']]
+    movie_names['id'] = pd.to_numeric(movie_names.id, errors='coerce').fillna(0).astype(np.int64)
+    movie_names.set_index(['id'], inplace=True)
     features_dataframe = movies_metadata.loc[:, ['id', 'features_genres']]
     features_dataframe.set_index(['id'], inplace=True)
     movie_ids = movies_metadata['id'].values
@@ -72,4 +75,4 @@ def get_features():
     features_dataframe.index.name = 'id'
     features_dataframe.columns = features_dataframe.columns.astype('int32')
     features_dataframe.index = features_dataframe.index.astype('int32')
-    return features_dataframe, movie_ids, np.array(list(set_genres))
+    return features_dataframe, movie_ids, np.array(list(set_genres)), movie_names
