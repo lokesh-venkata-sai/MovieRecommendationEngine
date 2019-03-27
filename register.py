@@ -5,7 +5,7 @@ class register():
         self.name=result['username']
         self.mailId= result['mailId']
         self.password=result['password']
-        self.confpPassword=result['confirmPassword']
+        self.confPassword=result['confirmPassword']
         self.genre=genre
         self.Action=0
         self.Adventure=0

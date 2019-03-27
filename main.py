@@ -61,7 +61,7 @@ def registerForm():
             return render_template("signup.html",status=False)
 
 
-@app.route('/myprofile')
+@app.route('/myprofile',methods = ['GET', 'POST'])
 def myprofile():
     if g.mail:
         user=session.get("mail")
@@ -83,6 +83,13 @@ def myprofile():
     return redirect(url_for('index'))
 
 
+@app.route('/interestForm',methods = ['GET', 'POST'])
+def interestForm():
+    result = request.form
+    genre = result.getlist('genre')
+    obj= update()
+    ans=obj.updatefunc(*genre,**result)
+    return redirect(url_for('myprofile'))
 
 
 
