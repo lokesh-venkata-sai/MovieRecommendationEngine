@@ -1,7 +1,5 @@
 import pandas as pd
 import numpy as np
-import zipfile
-import pathlib
 import json
 
 # global variable
@@ -32,12 +30,11 @@ def features(x):
     return np.around(list_feature, decimals=2)
 
 
-features_matrix = np.arange(20).reshape((1, 20))
 
 
 def generate_features_matrix(x):
     global features_matrix
-    x.reshape((1, 20))
+    x.reshape((1, len(set_genres)))
     features_matrix = np.vstack([features_matrix, x])
 
 
@@ -66,6 +63,8 @@ def get_features(path):
     features_dataframe.set_index(['id'], inplace=True)
     movie_ids = movies_metadata['id'].values
     movie_ids = movie_ids.astype(np.int)
+    global features_matrix
+    features_matrix = np.arange(len(set_genres)).reshape((1,len(set_genres)))
     features_dataframe.features_genres.apply(generate_features_matrix)
     features_dataframe = pd.DataFrame(data=features_matrix[1:, :], columns=features_matrix[0, :], index=movie_ids)
     features_dataframe.index.name = 'id'
