@@ -23,17 +23,16 @@ class login():
                 # Fetch all the rows in a list of lists.
                 results = cursor.fetchall()
                 password=results[0][0]
-                db.commit()
-                db.close()
-                if password==self.password:
-
-                    return True
-                else:
-                    return False
             except:
                 print("Error: unable to fetch data")
                 db.commit()
                 db.close()
                 return False
+            if password == self.password:
+                return True
+            else:
+                return False
+            db.commit()
+            db.close()
             # disconnect from server
 

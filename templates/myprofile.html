@@ -21,23 +21,26 @@
         @import url('https://fonts.googleapis.com/css?family=Numans');
 
         html,body{
-        background-image: url(static/homeback4.jpg);
-        background-size: cover;
+        background-image: url(static/homeback3.jpg);
         background-repeat: no-repeat;
-        height: 100%;
+		background-position: center;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
         font-family: 'Numans', sans-serif;
         }
 
         .container{
         height: 100%;
+        grid-template-columns: repeat(auto-fit, 100px);
         align-content: center;
         }
 
         .card{
-        height: 450px;
+        height: auto;
         margin-top: auto;
         margin-bottom: auto;
-        width: 500px;
+        width: auto;
         background-color: rgba(0,0,0,0.5) !important;
         }
 
@@ -72,7 +75,7 @@ function ValidateEmail(mailId)
 </script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top bg-dark navbar-dark navbar-expand-sm">
+    <nav class="navbar navbar-inverse navbar-fixed-top bg-dark navbar-dark navbar-expand-md">
     <a class="navbar-brand" href="home">WebSiteName</a>
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
@@ -144,11 +147,13 @@ function ValidateEmail(mailId)
                             {% else %}
                                 <input type="checkbox" name="genre" value="Fantasy">Fantasy
                             {% endif%}
+                            <br>
                             {% if user[0][8] == 1%}
                                 <input type="checkbox" name="genre" value="Boat" checked> Drama
                             {% else %}
                                 <input type="checkbox" name="genre" value="Boat"> Drama
                             {% endif%}
+
                             {% if user[0][12] == 1%}
                                 <input type="checkbox" name="genre" value="Sci-Fi" checked>Sci-Fi
                             {% else %}

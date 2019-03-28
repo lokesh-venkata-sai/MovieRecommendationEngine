@@ -57,14 +57,12 @@ class register():
             cursor.execute(sql,val)
             print("command executed")
             # Fetch all the rows in a list of lists.
-            db.commit()
-            db.close()
-            return True
         except Exception as e:
             print(e)
             print("Error: unable to insert data")
-            db.commit()
             db.close()
             return False
+        db.commit()
+        db.close()
         return True
 

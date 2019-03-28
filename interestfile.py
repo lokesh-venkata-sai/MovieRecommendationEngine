@@ -47,7 +47,6 @@ class update():
         except Exception as e:
             print("Error: unable to insert data")
             print(e)
-            db.commit()
             db.close()
             save = False
             return save
