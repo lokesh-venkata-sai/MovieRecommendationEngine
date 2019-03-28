@@ -1,15 +1,8 @@
 import pandas as pd
 import numpy as np
-import zipfile
-import pathlib
 
-
-def get_ratings_matrix():
-    dir_ref = pathlib.Path('the-movies-dataset')
-    if not (dir_ref.is_dir() and dir_ref.exists()):
-        zip_ref = zipfile.ZipFile('the-movies-dataset.zip', 'r')
-        zip_ref.extractall('./')
-    movies_dataset = pd.read_csv('./the-movies-dataset/ratings_small.csv', low_memory=False)
+def get_ratings_matrix(path):
+    movies_dataset = pd.read_csv(path, low_memory=False)
     ratings = movies_dataset.values
     movie_ids = np.array(movies_dataset.iloc[:, 1].unique())
     no_movie_ids = movie_ids.max() + 1
