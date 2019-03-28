@@ -41,12 +41,8 @@ def generate_features_matrix(x):
     features_matrix = np.vstack([features_matrix, x])
 
 
-def get_features():
-    dir_ref = pathlib.Path('the-movies-dataset')
-    if not (dir_ref.is_dir() and dir_ref.exists()):
-        zip_ref = zipfile.ZipFile('the-movies-dataset.zip', 'r')
-        zip_ref.extractall('./')
-    movies_metadata = pd.read_csv('./the-movies-dataset/movies_metadata.csv', low_memory=False)
+def get_features(path):
+    movies_metadata = pd.read_csv(path, low_memory=False)
     movies_metadata.drop(movies_metadata[movies_metadata.id == "1997-08-20"].index, inplace=True)
     movies_metadata.drop(movies_metadata[movies_metadata.id == "2012-09-29"].index, inplace=True)
     movies_metadata.drop(movies_metadata[movies_metadata.id == "2014-01-01"].index, inplace=True)
