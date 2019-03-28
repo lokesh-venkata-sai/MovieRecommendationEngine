@@ -3,9 +3,9 @@ from cotent_based_filtering_on_test_data.features import get_features
 from cotent_based_filtering_on_test_data.Ratings_matrix import get_ratings_matrix
 
 
-def filter():
-    ratings, movie_ids_ratings, user_ids = get_ratings_matrix()
-    features_dataframe, movie_ids_features, list_genres, movie_names = get_features()
+def filter(ratings_path,features_path):
+    ratings, movie_ids_ratings, user_ids = get_ratings_matrix(ratings_path)
+    features_dataframe, movie_ids_features, list_genres, movie_names = get_features(features_path)
     movie_ids_ratings = set(movie_ids_ratings)
     movie_ids_features = set(movie_ids_features)
     movies_common = movie_ids_features.intersection(movie_ids_ratings)
