@@ -12,7 +12,6 @@ app = Flask(__name__)
 #app.config.from_pyfile("config.cfg")
 
 @app.route('/')
-@app.route('/<login>')
 def index(login=None):
     return render_template("index.html",login=login)
 
@@ -34,7 +33,7 @@ def loginForm():
             session['mail'] = result['mailId']
 
             return redirect(url_for('home'))
-    return render_template("index.html",login=True)
+        return render_template("index.html",login=True)
 
 @app.route('/home')
 def home():
