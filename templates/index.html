@@ -109,6 +109,13 @@
 		}
 	</style>
 	<script>
+        function preback(){
+            window.history.forward();
+        }
+        setTimeout("preback()",0)
+        window.onunload=function(){null};
+    </script>
+	<script>
 function ValidateEmail(mailId)
 {
  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.mailId.value))

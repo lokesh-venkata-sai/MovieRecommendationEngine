@@ -6,6 +6,7 @@ from homefile import homefile
 from datetime import timedelta
 import pymysql
 from interestfile import update
+from moviesfile import moviefile
 
 app = Flask(__name__)
 
@@ -44,6 +45,15 @@ def home():
         return render_template('home.html', results=results)
     return redirect(url_for('index'))
 
+@app.route('/movies')
+def movies():
+    if g.mail:  # to check if logged in
+        obj=moviefile()
+        results=obj.moviesfunc()
+        print(len(results))
+        print(type(results))
+        return render_template('Movies.html',results=results,length=len(results))
+    return redirect(url_for('index'))
 
 @app.route('/registerForm', methods=['GET', 'POST'])
 def registerForm():
