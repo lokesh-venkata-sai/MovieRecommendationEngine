@@ -50,8 +50,6 @@ def movies():
     if g.mail:  # to check if logged in
         obj=moviefile()
         results=obj.moviesfunc()
-        print(len(results))
-        print(type(results))
         return render_template('Movies.html',results=results,length=len(results))
     return redirect(url_for('index'))
 
