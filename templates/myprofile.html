@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Signup Page</title>
+    <title>Signup Page</title>
 
-   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<!--Bootsrap 4 CDN-->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-	<!--Custom styles-->
+    <!--Custom styles-->
     <style>
         /*for font style */
         @import url('https://fonts.googleapis.com/css?family=Numans');
@@ -61,8 +63,9 @@
         box-shadow: 0 0 0 0 !important;
         }
 
-</style>
-<script>
+
+    </style>
+    <script>
 function ValidateEmail(mailId)
 {
  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.mailId.value))
@@ -72,116 +75,118 @@ function ValidateEmail(mailId)
     alert("You have entered an invalid email address!")
     return (false)
 }
-</script>
+
+    </script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top bg-dark navbar-dark navbar-expand-md">
-    <a class="navbar-brand" href="home">WebSiteName</a>
-  <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="nav navbar-nav">
-      <li><a href="home">Home</a></li>
-      <li><a href="#">Page 2</a></li>
-      <li><a href="#">Page 2</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li  class="active"><a href="myprofile"><span class="glyphicon glyphicon-user"></span>MyProfile</a></li>
-      <li><a href="dropsession"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-    </ul>
-  </div>
+<nav class="navbar navbar-inverse navbar-fixed-top bg-dark navbar-dark navbar-expand-md">
+    <a class="navbar-brand" href="home">MovieCorner</a>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <li><a href="home">Home</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 2</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="myprofile"><span class="glyphicon glyphicon-user"></span>MyProfile</a></li>
+            <li><a href="dropsession"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        </ul>
+    </div>
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </button>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
     </div>
 </nav>
 <div class="container" style="text-align: center">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-			<div class="card-header">
-				<h3 id="heading">My Profile</h3>
-			</div>
-			<div class="card-body" style="color:white">
+    <div class="d-flex justify-content-center h-100">
+        <div class="card">
+            <div class="card-header">
+                <h3 id="heading">My Profile</h3>
+            </div>
+            <div class="card-body" style="color:white">
                 <form action="interestForm" method="post">
-					<div class="input-group">
+                    <div class="input-group">
                         <div class="input-text">User ID:</div>
-                        <input type="text"   class="form-control" value={{user[0][0]}} readonly>
-					</div>
-                <br>
+                        <input type="text" class="form-control" value={{user[0][0]}} readonly>
+                    </div>
+                    <br>
                     <div class="input-group">
                         <div class="input-text">User Name:</div>
-						 <input type="text" id="username" name="username" class="form-control" value={{user[0][1]}} readonly>
-					</div>
-                <br>
+                        <input type="text" id="username" name="username" class="form-control" value={{user[0][1]}}
+                               readonly>
+                    </div>
+                    <br>
                     <div class="input-group">
-						<div class="input-text">Email:</div>
-                        <input type="text" id="mailId" name="mailId"  class="form-control" value={{user[0][2]}} readonly>
+                        <div class="input-text">Email:</div>
+                        <input type="text" id="mailId" name="mailId" class="form-control" value={{user[0][2]}} readonly>
 
-					</div>
-					<div class="input-group" style="color: white">
+                    </div>
+                    <div class="input-group" style="color: white">
                         <h3>Interests:</h3>
 
-                            {% if user[0][4] == 1%}
-                                <input type="checkbox"  name="genre" value="Action" checked>Action
-                            {% else %}
-                                <input type="checkbox"  name="genre" value="Action">Action
-                            {% endif%}
-                            {% if user[0][5] == 1%}
-                                <input type="checkbox"  name="genre" value="Adventure" ckecked>Adventure
-                            {% else %}
-                                <input type="checkbox"  name="genre" value="Adventure">Adventure
-                            {% endif%}
-                            {% if user[0][11] == 1%}
-                                <input type="checkbox" name="genre" value="Romance" checked> Romance
-                            {% else %}
-                                <input type="checkbox" name="genre" value="Romance"> Romance
-                            {% endif%}
-                            {% if user[0][7] == 1%}
-                                <input type="checkbox" name="genre" value="Comedy" checked>comedy
-                            {% else %}
-                                <input type="checkbox" name="genre" value="Comedy">comedy
-                            {% endif%}
-                            {% if user[0][9] == 1%}
-                                <input type="checkbox" name="genre" value="Fantasy" checked>Fantasy
-                            {% else %}
-                                <input type="checkbox" name="genre" value="Fantasy">Fantasy
-                            {% endif%}
-                            <br>
-                            {% if user[0][8] == 1%}
-                                <input type="checkbox" name="genre" value="Boat" checked> Drama
-                            {% else %}
-                                <input type="checkbox" name="genre" value="Boat"> Drama
-                            {% endif%}
+                        {% if user[0][4] == 1%}
+                        <input type="checkbox" name="genre" value="Action" checked>Action
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Action">Action
+                        {% endif%}
+                        {% if user[0][5] == 1%}
+                        <input type="checkbox" name="genre" value="Adventure" ckecked>Adventure
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Adventure">Adventure
+                        {% endif%}
+                        {% if user[0][11] == 1%}
+                        <input type="checkbox" name="genre" value="Romance" checked> Romance
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Romance"> Romance
+                        {% endif%}
+                        {% if user[0][7] == 1%}
+                        <input type="checkbox" name="genre" value="Comedy" checked>comedy
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Comedy">comedy
+                        {% endif%}
+                        {% if user[0][9] == 1%}
+                        <input type="checkbox" name="genre" value="Fantasy" checked>Fantasy
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Fantasy">Fantasy
+                        {% endif%}
+                        <br>
+                        {% if user[0][8] == 1%}
+                        <input type="checkbox" name="genre" value="Boat" checked> Drama
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Boat"> Drama
+                        {% endif%}
 
-                            {% if user[0][12] == 1%}
-                                <input type="checkbox" name="genre" value="Sci-Fi" checked>Sci-Fi
-                            {% else %}
-                                <input type="checkbox" name="genre" value="Sci-Fi">Sci-Fi
-                            {% endif%}
-                            {% if user[0][13] == 1%}
-                                <input type="checkbox" name="genre" value="Thriller" checked>Thriller
-                            {% else %}
-                                <input type="checkbox" name="genre" value="Thriller">Thriller
-                            {% endif%}
-                            {% if user[0][10] == 1%}
-                                <input type="checkbox" name="genre" value="Horror" checked>Horror
-                            {% else %}
-                                <input type="checkbox" name="genre" value="Horror">Horror
-                            {% endif%}
-                            {% if user[0][6] == 1%}
-                                <input type="checkbox" name="genre" value="Animation" checked>Animation
-                            {% else %}
-                                <input type="checkbox" name="genre" value="Animation">Animation
-                            {% endif%}
-                          <br><br>
-                          <input type="submit" value="Update" style="background-color:#FFC312">
+                        {% if user[0][12] == 1%}
+                        <input type="checkbox" name="genre" value="Sci-Fi" checked>Sci-Fi
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Sci-Fi">Sci-Fi
+                        {% endif%}
+                        {% if user[0][13] == 1%}
+                        <input type="checkbox" name="genre" value="Thriller" checked>Thriller
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Thriller">Thriller
+                        {% endif%}
+                        {% if user[0][10] == 1%}
+                        <input type="checkbox" name="genre" value="Horror" checked>Horror
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Horror">Horror
+                        {% endif%}
+                        {% if user[0][6] == 1%}
+                        <input type="checkbox" name="genre" value="Animation" checked>Animation
+                        {% else %}
+                        <input type="checkbox" name="genre" value="Animation">Animation
+                        {% endif%}
+                        <br><br>
+                        <input type="submit" value="Update" style="background-color:#FFC312">
 
-					</div>
+                    </div>
                 </form>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
