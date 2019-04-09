@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MovieCorner</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background:black;
+            /*background-image: url(static/homeback3.jpg);*/
+            /*background: #FDF9EF;*/
+            background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		padding:10px;
+        }
+        .container-fluid
+        {
+            padding:10px;
+        }
+        .card1{
+            height: 350px;
+            width: 300px;
+            padding:20px;
+
+        }
+        .card-img-top1{
+            height:100%;
+            width: 100%;
+        }
+        .card-body1{
+            margin-left: auto;
+            margin-right: auto;
+            width: 200px;
+
+        }
+        .navbar{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .card{
+            height: 200px;
+            width: 200px;
+            padding:20px;
+
+        }
+        .card-img-top{
+            height:auto;
+            width: 200px;
+        }
+        .card-body{
+            margin-left: auto;
+            margin-right: auto;
+            width: 180px;
+            height: 40%;
+
+        }
+
+        .card-title{
+            width: 100%;
+            height: 40%;
+        }
+        .carousel-control
+        {
+            width: 30px;
+        }
+        .carousel-control .glyphicon-chevron-right {
+
+          right: 4%;
+            //or you can increase this
+        }
+        .carousel-control .glyphicon-chevron-left{
+
+          left: 4%; //or you can increase this
+        }
+        .carousel-indicators li{
+            background: black;
+        }
+        .navbar{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        #myCarousel
+        {
+            padding:0px;
+        }
+        .carousel-inner{
+            padding:10px;
+        }
+        /* For mobile phones: */
+           /* [class*="col-"] {
+              width: 100%;
+            }*/
+            @media only screen and (max-width: 480px) {
+              [class*="col-"] {
+                width: 100%;
+              }
+                .container-fluid
+                {
+                    height: auto;
+                }
+                #sk
+                {
+                    margin-bottom: 10px;
+                }
+                .card{
+                    height: 150px;
+                    width: 150px;
+
+                }
+                .card-img-top{
+                    height:auto;
+                    width: 130px;
+                }
+                .card-body{
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 130px;
+                    height: 40%;
+
+                }
+
+                .card-title{
+                    width: 100%;
+                    height: 40%;
+                }
+          }
+
+            @media only screen and (min-width: 600px) {
+              /* For tablets: */
+
+            }
+            @media only screen and (min-width: 768px) {
+              /* For desktop: */
+
+            }
+
+
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top bg-dark navbar-dark navbar-expand-md">
+    <a class="navbar-brand" href="/home" style="color:red;">MovieCorner</a>
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+            <li><a href="/home">Home</a></li>
+            <li  class="active" ><a href="/movies">Movies</a></li>
+            <li><a href="#">Page 2</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/myprofile"><span class="glyphicon glyphicon-user"></span>MyProfile</a></li>
+            <li><a href="/dropsession"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        </ul>
+    </div>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+</nav>
+<div class="row" style="padding-top:25px;">
+    <div class="col-lg-4 col-sm-4 col-sm-4 col-xs-12">
+        <div class="card1">
+            <img class="card-img-top1 img-responsive" src="{{movie[0][1]}}" alt="Card image" style="height:100%;width:100%">
+        </div>
+    </div>
+    <div class="col-lg-8 col-sm-8 col-sm-8 col-xs-12">
+        <h2 style="color:white">{{movie[0][2]}}</h2><br>
+        <h4 style="color:white">Genre: {{genre}}</h4>
+    </div>
+
+</div>
+<div class="container-fluid">
+    <br>
+    <h3 style="text-align: left;color:white">Recommended Movies</h3>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2 ">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="/static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="/static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+                           </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="/static/loginback1.jpg" alt="Card image" style="height:100%;width:100%">
+                            <div class="card-body">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="/static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body" style="align-self: center">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body" style="align-self: center">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body" style="align-self: center">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="/static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="/static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback1.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body" style="align-self: center">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body" style="align-self: center">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body" style="align-self: center">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="/static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top img-responsive" src="/static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback1.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body">
+                                <a href="#"><a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body" style="align-self: center">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body" style="align-self: center">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                        <div class="card">
+                            <img class="card-img-top" src="/static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
+                            <div class="card-body" style="align-self: center">
+                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

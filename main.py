@@ -7,7 +7,7 @@ from datetime import timedelta
 import pymysql
 from interestfile import update
 from moviesfile import moviefile
-
+from singleMoviefile import singleMovie
 app = Flask(__name__)
 
 
@@ -32,7 +32,6 @@ def loginForm():
         session.pop('mail', None)
         if y == True:
             session['mail'] = result['mailId']
-
             return redirect(url_for('home'))
     return render_template("index.html", login=True)
 
@@ -47,7 +46,7 @@ def home():
 
 @app.route('/movies')
 def movies():
-    if g.mail:  # to check if logged in
+    if g.mail:  # to check if logged in i.e to check session is on
         obj=moviefile()
         results=obj.moviesfunc()
         return render_template('Movies.html',results=results,length=len(results))
@@ -57,7 +56,7 @@ def movies():
 def registerForm():
     result = request.form
     genre = result.getlist('genre')
-    ob = register()
+    ob = register()#creating object for register class
     print(genre)
     ans = ob.registerfunc(*genre, **result)
     email = result['mailId']
@@ -66,6 +65,29 @@ def registerForm():
         return render_template("signup.html", status=status)
     else:
         return render_template("signup.html", status=False)
+
+
+@app.route('/single')
+@app.route('/single/<ID>')
+def single(ID):
+    if g.mail:
+        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        cursor = db.cursor()
+        sql = "select * from movies where ID=%s"
+        value = (ID)
+        try:
+            # Execute the SQL command
+            cursor.execute(sql, value)
+            # Fetch all the rows in a list of lists.
+            movie = cursor.fetchall()
+            print(movie)
+        except:
+            print("Error: unable to fetch data")
+        db.close()
+        obj=singleMovie()
+        genre=obj.getGenre(*movie)
+
+    return render_template("singleMovie.html",movie=movie,genre=genre)
 
 
 @app.route('/myprofile', methods=['GET', 'POST'])
@@ -85,7 +107,7 @@ def myprofile():
         except:
             print("Error: unable to fetch data")
         db.close()
-        print("user values:", user)
+
         return render_template("myprofile.html", user=user)
     return redirect(url_for('index'))
 

@@ -4,7 +4,7 @@ class homefile():
     def homefunc(self):
         db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
         cursor = db.cursor()
-        sql = "select ID,poster_url,Movie from movies"
+        sql = "select ID,poster_url,Movie from movies LIMIT 18"
         try:
             # Execute the SQL command
             cursor.execute(sql)

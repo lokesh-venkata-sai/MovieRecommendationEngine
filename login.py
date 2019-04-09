@@ -29,10 +29,13 @@ class login():
                 db.close()
                 return False
             if password == self.password:
+                db.commit()
+                db.close()
                 return True
             else:
+                db.commit()
+                db.close()
                 return False
-            db.commit()
-            db.close()
+
             # disconnect from server
 

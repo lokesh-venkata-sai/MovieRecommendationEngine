@@ -1,0 +1,41 @@
+import pymysql
+class singleMovie():
+    def getGenre(self,*movie):
+        genre=""
+        if movie[0][4]==1:
+            genre+=" Action"
+        if movie[0][5] == 1:
+            genre += " Adventure"
+        if movie[0][6]==1:
+            genre+=" Animation"
+        if movie[0][7]==1:
+            genre+=" Children"
+        if movie[0][8]==1:
+            genre+=" Comedy"
+        if movie[0][9]==1:
+            genre+=" Crime"
+        if movie[0][10]==1:
+            genre+=" Documentary"
+        if movie[0][11]==1:
+            genre+=" Drama"
+        if movie[0][12]==1:
+            genre+=" Fantasy"
+        if movie[0][13]==1:
+            genre+=" Film_Noir"
+        if movie[0][14]==1:
+            genre+=" Horror"
+        if movie[0][15]==1:
+            genre+=" Musical"
+        if movie[0][16]==1:
+            genre+=" Mystery"
+        if movie[0][17]==1:
+            genre+=" Romance"
+        if movie[0][18]==1:
+            genre+=" Sci_Fi"
+        if movie[0][19]==1:
+            genre+=" Thriller"
+        if movie[0][20]==1:
+            genre+=" War"
+        if movie[0][21]==1:
+            genre+=" Western"
+        return genre
