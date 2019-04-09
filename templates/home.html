@@ -133,7 +133,7 @@
         <ul class="nav navbar-nav">
             <li class="active"><a href="home">Home</a></li>
             <li><a href="movies">Movies</a></li>
-            <li><a href="single">Page 2</a></li>
+            <li><a href="#">Page 2</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="myprofile"><span class="glyphicon glyphicon-user"></span>MyProfile</a></li>
@@ -163,196 +163,47 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="row">
+                    {% for i in range (0,6)%}
                     <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2 ">
                         <div class="card">
                             <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
                             <div class="card-body">
                                 <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-                                
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-                           </div>
-                        </div>
-                    </div>
+                    {%endfor%}
 
-
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback1.jpg" alt="Card image" style="height:100%;width:100%">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
             <div class="item">
                 <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                    {% for i in range (0,6)%}
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2 ">
                         <div class="card">
                             <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
                             <div class="card-body">
                                 <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback1.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
+                    {%endfor%}
                 </div>
             </div>
 
             <div class="item">
                 <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                    {% for i in range (0,6)%}
+                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2 ">
                         <div class="card">
                             <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
                             <div class="card-body">
                                 <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback1.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#"><a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
+                    {%endfor%}
                 </div>
             </div>
         </div>
@@ -382,196 +233,46 @@
         <div class="carousel-inner">
             <div class="item active">
                 <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
+                    {% for i in range(0,6)%}
+                        <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="{{results[i][1]}}" style="height:100%;width:100%" alt="Card image">
+                                <div class="card-body">
+                                    <a href="/single/{{results[i][0]}}" style="color:white"><h4 class="card-title">{{results[i][2]}}</h4></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback1.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title" >John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg"  style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
 
             <div class="item">
                 <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
+                    {% for i in range(6,12)%}
+                        <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="{{results[i][1]}}" style="height:100%;width:100%" alt="Card image">
+                                <div class="card-body">
+                                    <a href="/single/{{results[i][0]}}" style="color:white"><h4 class="card-title">{{results[i][2]}}</h4></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback1.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
 
             <div class="item">
                 <div class="row">
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
+                    {% for i in range(12,18)%}
+                        <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+                            <div class="card">
+                                <img class="card-img-top img-responsive" src="{{results[i][1]}}" style="height:100%;width:100%" alt="Card image">
+                                <div class="card-body">
+                                    <a href="/single/{{results[i][0]}}" style="color:white"><h4 class="card-title">{{results[i][2]}}</h4></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top img-responsive" src="static/loginback.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback1.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-                        <div class="card">
-                            <img class="card-img-top" src="static/loginback2.jpg" style="height:100%;width:100%" alt="Card image">
-                            <div class="card-body" style="align-self: center">
-                                <a href="#" style="color:white"><h4 class="card-title">John Doe</h4></a>
-
-                                
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

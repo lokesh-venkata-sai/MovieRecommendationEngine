@@ -140,7 +140,60 @@
               /* For desktop: */
 
             }
+            form .stars {
+              background: url("/static/stars.png") repeat-x 0 0;
+              width: 150px;
 
+            }
+
+            form .stars input[type="radio"] {
+              position: absolute;
+              opacity: 0;
+              filter: alpha(opacity=0);
+            }
+            form .stars input[type="radio"].star-5:checked ~ span {
+              width: 100%;
+            }
+            form .stars input[type="radio"].star-4:checked ~ span {
+              width: 80%;
+            }
+            form .stars input[type="radio"].star-3:checked ~ span {
+              width: 60%;
+            }
+            form .stars input[type="radio"].star-2:checked ~ span {
+              width: 40%;
+            }
+            form .stars input[type="radio"].star-1:checked ~ span {
+              width: 20%;
+            }
+            form .stars label {
+              display: block;
+              width: 30px;
+              height: 30px;
+              margin: 0!important;
+              padding: 0!important;
+              text-indent: -999em;
+              float: left;
+              position: relative;
+              z-index: 10;
+              background: transparent!important;
+              cursor: pointer;
+            }
+
+            form .stars span {
+              display: block;
+              width: 0;
+              position: relative;
+              top: 0;
+              left: 0;
+              height: 30px;
+              background: url("/static/stars.png") repeat-x 0 -60px;
+              -webkit-transition: -webkit-width 0.5s;
+              -moz-transition: -moz-width 0.5s;
+              -ms-transition: -ms-width 0.5s;
+              -o-transition: -o-width 0.5s;
+              transition: width 0.5s;
+            }
 
 
     </style>
@@ -151,7 +204,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
             <li><a href="/home">Home</a></li>
-            <li  class="active" ><a href="/movies">Movies</a></li>
+            <li ><a href="/movies">Movies</a></li>
             <li><a href="#">Page 2</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -176,6 +229,26 @@
     <div class="col-lg-8 col-sm-8 col-sm-8 col-xs-12">
         <h2 style="color:white">{{movie[0][2]}}</h2><br>
         <h4 style="color:white">Genre: {{genre}}</h4>
+        <div class="rating-block">
+            <h4 style="color:white">Average user rating</h4>
+            <h2 class="bold padding-bottom-7" style="color:white">4.3 <small style="color:white">/ 5</small></h2>
+            <form action="/rating" method="post">
+                <div class="stars">
+                    <input type="radio" name="star" class="star-1" id="star-1" value="1"/>
+                    <label class="star-1" for="star-1">1</label>
+                    <input type="radio" name="star" class="star-2" id="star-2" value="2"/>
+                    <label class="star-2" for="star-2">2</label>
+                    <input type="radio" name="star" class="star-3" id="star-3" value="3"/>
+                    <label class="star-3" for="star-3">3</label>
+                    <input type="radio" name="star" class="star-4" id="star-4" value="4"/>
+                    <label class="star-4" for="star-4">4</label>
+                    <input type="radio" name="star" class="star-5" id="star-5" value="5"/>
+                    <label class="star-5" for="star-5">5</label>
+                    <span></span>
+                </div>
+                <input type="submit" value="Rate">
+            </form>
+        </div>
     </div>
 
 </div>

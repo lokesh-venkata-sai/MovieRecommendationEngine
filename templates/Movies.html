@@ -101,26 +101,36 @@
         </button>
     </div>
 </nav>
-
+<div style="padding-top:55px;" align="center">
+    <form action="searchForm" method="post">
+        <input type="text" id="searching" name="searching" placeholder="Search...." style="height: 24px;width: 300px">
+        <input type="submit" id="searchsubmit" value="Search">
+    </form>
+</div>
 <div id="movies" style="padding-top:30px;">
-{% for i in range(0,(results|length)|int,6)%}
-    <div class="row" id="movierow">
-        {%for j in range(0,6)%}
-        {% if (i+j)<=(results|length)-1%}
-        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
-        <!-- results[i+j][1]= url;results[i+j][2]= name;results[i+j][0]= movieId -->
-                <div class="card">
-                    <a href="{{results[i+j][1]}}" target="_blank"><img class="card-img-top img-responsive" src={{results[i+j][1]}} alt="Card image" style="height:100%;width:100%"></a>
-                    <div  class="card-body">
-                        <a href="/single/{{results[i+j][0]}}"><h4  class="card-title" style="color:white">{{results[i+j][2]}}</h4></a>
+    {% if results!=False%}
+        {% for i in range(0,(results|length)|int,6)%}
+        <div class="row" id="movierow">
+            {%for j in range(0,6)%}
+            {% if (i+j)<=(results|length)-1%}
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+            <!-- results[i+j][1]= url;results[i+j][2]= name;results[i+j][0]= movieId -->
+                    <div class="card">
+                        <a href="{{results[i+j][1]}}" target="_blank"><img class="card-img-top img-responsive" src={{results[i+j][1]}} alt="Card image" style="height:100%;width:100%"></a>
+                        <div  class="card-body">
+                            <a href="/single/{{results[i+j][0]}}"><h4  class="card-title" style="color:white">{{results[i+j][2]}}</h4></a>
+                        </div>
                     </div>
-                </div>
 
-        </div>
-        {% endif%}
-        {%endfor%}
-    </div>
-    {% endfor %}
+            </div>
+            {% endif%}
+            {%endfor%}
+         </div>
+        {% endfor %}
+    {%endif%}
+    {% if results==False%}
+        <h3 style="color:red" align="center">Sorry No such Movies!!!</h3>
+    {%endif%}
 </div>
 </body>
 </html>

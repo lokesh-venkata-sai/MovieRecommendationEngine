@@ -44,20 +44,49 @@ def home():
         return render_template('home.html', results=results)
     return redirect(url_for('index'))
 
-@app.route('/movies')
+@app.route('/movies',)
 def movies():
     if g.mail:  # to check if logged in i.e to check session is on
         obj=moviefile()
         results=obj.moviesfunc()
-        return render_template('Movies.html',results=results,length=len(results))
+        return render_template('Movies.html',results=results)
     return redirect(url_for('index'))
+
+@app.route('/searchForm',methods=['GET', 'POST'])
+def searchForm():
+    if g.mail:
+        inp = request.form
+        search=inp['searching']
+        movies=""
+        if search!="":
+            db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+            cursor = db.cursor()
+            sql = "select * from movies where movie like %s"
+            x="%"+inp['searching']+"%"
+            value = (x)
+            print("val - ",value)
+            try:
+                # Execute the SQL command
+                cursor.execute(sql, value)
+                # Fetch all the rows in a list of lists.
+                movies = cursor.fetchall()
+            except:
+                print("Error: unable to fetch data")
+            db.close()
+            if movies:
+                return render_template("Movies.html",results=movies)
+            else:
+                return render_template("Movies.html",results=False)
+        else:
+            return redirect(url_for('movies'))
+    return redirect(url_for('index'))
+
 
 @app.route('/registerForm', methods=['GET', 'POST'])
 def registerForm():
     result = request.form
     genre = result.getlist('genre')
     ob = register()#creating object for register class
-    print(genre)
     ans = ob.registerfunc(*genre, **result)
     email = result['mailId']
     if ans == True:
@@ -80,7 +109,6 @@ def single(ID):
             cursor.execute(sql, value)
             # Fetch all the rows in a list of lists.
             movie = cursor.fetchall()
-            print(movie)
         except:
             print("Error: unable to fetch data")
         db.close()
@@ -89,6 +117,12 @@ def single(ID):
 
     return render_template("singleMovie.html",movie=movie,genre=genre)
 
+@app.route('/rating',methods=['GET', 'POST'])
+def rating():
+    if g.mail:
+        result=request.form
+        print(result["star"])
+        return redirect(url_for("home"))
 
 @app.route('/myprofile', methods=['GET', 'POST'])
 def myprofile():
