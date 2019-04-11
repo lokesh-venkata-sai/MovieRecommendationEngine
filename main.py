@@ -160,7 +160,7 @@ def before_request():
     g.mail = None
     if 'mail' in session:
         g.mail = session['mail']
-        
+
 
 
 
