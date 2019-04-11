@@ -160,7 +160,8 @@ def before_request():
     g.mail = None
     if 'mail' in session:
         g.mail = session['mail']
-        print("hi ", g.mail)
+        
+
 
 
 @app.route('/getsession')
