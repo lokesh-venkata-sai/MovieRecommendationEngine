@@ -8,6 +8,7 @@ import pymysql
 from interestfile import update
 from moviesfile import moviefile
 from singleMoviefile import singleMovie
+from ratingfile import ratingfile
 app = Flask(__name__)
 
 
@@ -114,14 +115,36 @@ def single(ID):
         db.close()
         obj=singleMovie()
         genre=obj.getGenre(*movie)
+        rating=obj.getrating(g.mail,ID)
 
-    return render_template("singleMovie.html",movie=movie,genre=genre)
+    return render_template("singleMovie.html",movie=movie,genre=genre,id=ID,rating=rating)
 
 @app.route('/rating',methods=['GET', 'POST'])
 def rating():
     if g.mail:
+        user_id=""
+        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        cursor = db.cursor()
+        sql = "select id from users where email=%s"
+        value = (g.mail)
+        try:
+            # Execute the SQL command
+            cursor.execute(sql, value)
+            # Fetch all the rows in a list of lists.
+            movie = cursor.fetchall()
+            user_id=movie[0][0]
+        except:
+            print("Error: unable to fetch data")
+        db.close()
         result=request.form
         print(result["star"])
+        print(result["movie_id"])
+        print("user=",user_id)
+        obj=ratingfile
+        #status=obj.ratingfunc(user_id,result["movie_id"],result["star"])
+        status=obj.ratingfunc(obj,user_id,**result)
+        if status==True:
+            return redirect(url_for("home"))
         return redirect(url_for("home"))
 
 @app.route('/myprofile', methods=['GET', 'POST'])
@@ -160,7 +183,7 @@ def before_request():
     g.mail = None
     if 'mail' in session:
         g.mail = session['mail']
-        print("hi ", g.mail)
+        #print("hi ", g.mail)
 
 
 @app.route('/getsession')

@@ -105,6 +105,7 @@
     <form action="searchForm" method="post">
         <input type="text" id="searching" name="searching" placeholder="Search...." style="height: 24px;width: 300px">
         <input type="submit" id="searchsubmit" value="Search">
+
     </form>
 </div>
 <div id="movies" style="padding-top:30px;">
@@ -121,7 +122,6 @@
                             <a href="/single/{{results[i+j][0]}}"><h4  class="card-title" style="color:white">{{results[i+j][2]}}</h4></a>
                         </div>
                     </div>
-
             </div>
             {% endif%}
             {%endfor%}

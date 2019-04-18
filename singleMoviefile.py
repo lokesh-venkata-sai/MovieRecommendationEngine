@@ -39,3 +39,37 @@ class singleMovie():
         if movie[0][21]==1:
             genre+=" Western"
         return genre
+
+    def getrating(self,mail,movie_id):
+        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        cursor = db.cursor()
+        sql = "select id from users where email=%s"
+        value = (mail)
+        user_id=""
+        try:
+            # Execute the SQL command
+            cursor.execute(sql, value)
+            # Fetch all the rows in a list of lists.
+            movie = cursor.fetchall()
+            user_id = movie[0][0]
+        except:
+            print("Error: unable to fetch data")
+        db.close()
+        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        cursor = db.cursor()
+        sql = "select rating from ratings where userID=%s && movieId=%s"
+        value = (user_id,movie_id)
+        try:
+            # Execute the SQL command
+            cursor.execute(sql, value)
+            # Fetch all the rows in a list of lists.
+            movie = cursor.fetchall()
+        except:
+            print("Error: unable to fetch data")
+            db.close()
+            return False
+        db.close()
+        if movie:
+            return movie[0][0]
+        else:
+            return "Not Yet Rated"
