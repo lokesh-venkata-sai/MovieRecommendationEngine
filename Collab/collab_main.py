@@ -1,7 +1,9 @@
 import numpy as np
 import pandas as pd
 from scipy.optimize import minimize
-
+import pymysql
+from pandas.io import sql as s
+from sqlalchemy import create_engine
 
 def cost_function(grad):
     global ratings, no_of_features, no_of_movies, no_of_users
@@ -71,12 +73,20 @@ def recommendations():
     ratings_predicted = ratings_predicted * R
     predictions = pd.DataFrame(data=ratings_predicted, columns=np.arange(1, no_of_users + 1),
                                index=np.arange(1, no_of_movies + 1))
-    top_5_predictions = np.empty((no_of_users, 5))
+    top_5_predictions = pd.DataFrame(columns=['userId', 'movieId'])
     for i in range(1, no_of_users + 1):
         for_each_user = predictions.nlargest(5, [i]).loc[:, [i]]
-        top_5_predictions[i - 1] = for_each_user.index.values
+        for_each_user['userId'] = np.full(5, i)
+        for_each_user['movieId'] = for_each_user.index
+        for_each_user.index = np.arange(5)
+        top_5_predictions = top_5_predictions.append(for_each_user.loc[:, ['userId', 'movieId']], ignore_index=True)
     return top_5_predictions
 
 
+
+
 if __name__ == "__main__":
-    print(recommendations())
+    x = recommendations()
+    cnx = create_engine('mysql+pymysql://root:lokesh1999@localhost:3306/movieRecommendataion').connect()
+    x.to_sql(con=cnx,name='recommend',if_exists='replace',dtype=None,index=True)
+    print("done")

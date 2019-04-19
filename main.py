@@ -40,9 +40,25 @@ def loginForm():
 @app.route('/home')
 def home():
     if g.mail:  # to check if logged in
+        user_id = ""
+        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        cursor = db.cursor()
+        sql = "select id from users where email=%s"
+        value = (g.mail)
+        try:
+            # Execute the SQL command
+            cursor.execute(sql, value)
+            # Fetch all the rows in a list of lists.
+            movie = cursor.fetchall()
+            user_id = movie[0][0]
+        except:
+            print("Error: unable to fetch data")
+        db.close()
         y = homefile()
         results = y.homefunc()
-        return render_template('home.html', results=results)
+        recommend=y.getrecommend(user_id)
+        #print(recommend)
+        return render_template('home.html', results=results, results1=recommend)
     return redirect(url_for('index'))
 
 @app.route('/movies',)
