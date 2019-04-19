@@ -40,7 +40,7 @@ def loginForm():
 @app.route('/home')
 def home():
     if g.mail:  # to check if logged in
-        y = homefile()  # not yet implemented
+        y = homefile()
         results = y.homefunc()
         return render_template('home.html', results=results)
     return redirect(url_for('index'))
@@ -137,14 +137,15 @@ def rating():
             print("Error: unable to fetch data")
         db.close()
         result=request.form
-        print(result["star"])
-        print(result["movie_id"])
-        print("user=",user_id)
-        obj=ratingfile
-        #status=obj.ratingfunc(user_id,result["movie_id"],result["star"])
-        status=obj.ratingfunc(obj,user_id,**result)
-        if status==True:
-            return redirect(url_for("home"))
+        if "star" in result:
+            print(result["star"])
+            print(result["movie_id"])
+            print("user=",user_id)
+            obj=ratingfile
+            #status=obj.ratingfunc(user_id,result["movie_id"],result["star"])
+            status=obj.ratingfunc(obj,user_id,**result)
+            if status==True:
+                return redirect(url_for("home"))
         return redirect(url_for("home"))
 
 @app.route('/myprofile', methods=['GET', 'POST'])
