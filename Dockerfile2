@@ -1,0 +1,5 @@
+FROM mysql:latest
+
+ENV MYSQL_DATABASE movieRecommendation
+
+COPY SQLfinal.sql /docker-entrypoint-initdb.d/

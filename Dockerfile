@@ -1,10 +1,16 @@
-from alpine:latest
+# our base image
+FROM alpine:latest
 
-RUN apk add --no-cache python3-dev \
-	&& pip3 install --upgrade pip
+# Install python and pip
+RUN apk add python3
+RUN apk add py3-cryptography
+RUN apk add curl 
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN python3 get-pip.py
 
-WORKDIR /app
+COPY . /usr/src/app/
+RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
 
-COPY . /app
+EXPOSE 5000
 
-RUN pip3 --no-cache-dir install -r requirements.txt
+CMD ["python3", "/usr/src/app/main.py"]
