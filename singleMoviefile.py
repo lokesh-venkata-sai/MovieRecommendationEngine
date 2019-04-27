@@ -73,3 +73,21 @@ class singleMovie():
             return movie[0][0]
         else:
             return "Not Yet Rated"
+
+    def getAvgRating(self,movie_id):
+        avg=""
+        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        cursor = db.cursor()
+        sql = "select avg(rating) from ratings where movieId = %s"
+        value = (int(movie_id))
+
+        try:
+            # Execute the SQL command
+            cursor.execute(sql, value)
+            # Fetch all the rows in a list of lists.
+            res = cursor.fetchall()
+            avg = res[0][0]
+        except:
+            print("Error: unable to fetch data")
+        db.close()
+        return avg

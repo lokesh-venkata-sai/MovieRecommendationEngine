@@ -57,7 +57,10 @@ def home():
         y = homefile()
         results = y.homefunc()
         recommend=y.getrecommend(user_id)
-        #print(recommend)
+        if recommend == None:
+            print("none")
+            return render_template('home.html',results=results,novalue="")
+
         return render_template('home.html', results=results, results1=recommend)
     return redirect(url_for('index'))
 
@@ -132,8 +135,33 @@ def single(ID):
         obj=singleMovie()
         genre=obj.getGenre(*movie)
         rating=obj.getrating(g.mail,ID)
+        avg=obj.getAvgRating(ID)
 
-    return render_template("singleMovie.html",movie=movie,genre=genre,id=ID,rating=rating)
+        user_id = ""
+        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        cursor = db.cursor()
+        sql = "select id from users where email=%s"
+        value = (g.mail)
+        try:
+            # Execute the SQL command
+            cursor.execute(sql, value)
+            # Fetch all the rows in a list of lists.
+            res = cursor.fetchall()
+            user_id = res[0][0]
+        except:
+            print("Error: unable to fetch data")
+        db.close()
+        y = homefile()
+        results = y.homefunc()
+        recommend = y.getrecommend(user_id)
+        print(user_id)
+        print("-----------single-----")
+        print(recommend)
+        if recommend == None:
+            print("none")
+            return render_template("singleMovie.html",movie=movie,genre=genre,id=ID,rating=rating,avg=avg,results1=recommend)
+
+        return render_template("singleMovie.html",movie=movie,genre=genre,id=ID,rating=rating,avg=avg,results1=recommend)
 
 @app.route('/rating',methods=['GET', 'POST'])
 def rating():

@@ -31,7 +31,7 @@ class homefile():
             print("Error: unable to fetch data1")
 
 
-        print(results1)
+        #print(results1)
         res = tuple();
 
         for i in results1:

@@ -75,10 +75,10 @@ def recommendations():
                                index=np.arange(1, no_of_movies + 1))
     top_5_predictions = pd.DataFrame(columns=['userId', 'movieId'])
     for i in range(1, no_of_users + 1):
-        for_each_user = predictions.nlargest(5, [i]).loc[:, [i]]
-        for_each_user['userId'] = np.full(5, i)
+        for_each_user = predictions.nlargest(6, [i]).loc[:, [i]]
+        for_each_user['userId'] = np.full(6, i)
         for_each_user['movieId'] = for_each_user.index
-        for_each_user.index = np.arange(5)
+        for_each_user.index = np.arange(6)
         top_5_predictions = top_5_predictions.append(for_each_user.loc[:, ['userId', 'movieId']], ignore_index=True)
     return top_5_predictions
 
