@@ -1,10 +1,11 @@
 import pymysql
-
+mysql_server="localhost"
 class homefile():
     def homefunc(self):
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select ID,poster_url,Movie from movies LIMIT 18"
+        results=""
         try:
             # Execute the SQL command
             cursor.execute(sql)
@@ -18,7 +19,7 @@ class homefile():
 
     def getrecommend(self,user_id):
         results1=""
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select movieId from recommend where userId=%s"
         val=(int(user_id))

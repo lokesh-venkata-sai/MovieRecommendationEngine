@@ -87,6 +87,6 @@ def recommendations():
 
 if __name__ == "__main__":
     x = recommendations()
-    cnx = create_engine('mysql+pymysql://root:lokesh1999@localhost:3306/movieRecommendataion').connect()
+    cnx = create_engine('mysql+pymysql://root:lokesh1999@localhost:3306/movieRecommendation').connect()
     x.to_sql(con=cnx,name='recommend',if_exists='replace',dtype=None,index=True)
     print("done")

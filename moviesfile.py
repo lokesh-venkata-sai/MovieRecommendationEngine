@@ -1,9 +1,12 @@
 import pymysql
+mysql_server="localhost"
+
 class moviefile():
     def moviesfunc(self):
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select ID,poster_url,Movie from movies"
+        results=""
         try:
             # Execute the SQL command
             cursor.execute(sql)

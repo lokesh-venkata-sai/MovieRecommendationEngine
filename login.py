@@ -1,11 +1,13 @@
 import pymysql
+mysql_server="localhost"
+
 class login():
     def validateLogin(self,**data):
             self.mailId = data['mailId']
             self.password = data['password']
 
             # Open database connection
-            db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+            db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
             # prepare a cursor object using cursor() method
             db.autocommit(False)
             cursor = db.cursor()

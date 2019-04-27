@@ -11,7 +11,7 @@ from singleMoviefile import singleMovie
 from ratingfile import ratingfile
 app = Flask(__name__)
 
-
+mysql_server="localhost"
 # app.config.from_pyfile("config.cfg")
 @app.route('/')
 @app.route('/<login>')
@@ -41,7 +41,7 @@ def loginForm():
 def home():
     if g.mail:  # to check if logged in
         user_id = ""
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select id from users where email=%s"
         value = (g.mail)
@@ -79,7 +79,7 @@ def searchForm():
         search=inp['searching']
         movies=""
         if search!="":
-            db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+            db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
             cursor = db.cursor()
             sql = "select * from movies where movie like %s"
             x="%"+inp['searching']+"%"
@@ -120,7 +120,7 @@ def registerForm():
 @app.route('/single/<ID>')
 def single(ID):
     if g.mail:
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select * from movies where ID=%s"
         value = (ID)
@@ -138,7 +138,7 @@ def single(ID):
         avg=obj.getAvgRating(ID)
 
         user_id = ""
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select id from users where email=%s"
         value = (g.mail)
@@ -163,7 +163,8 @@ def single(ID):
 def rating():
     if g.mail:
         user_id=""
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select id from users where email=%s"
         value = (g.mail)
@@ -192,7 +193,7 @@ def rating():
 def myprofile():
     if g.mail:
         user = session.get("mail")
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select * from users where email=%s"
         value = (session.get("mail"))

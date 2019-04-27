@@ -1,4 +1,6 @@
 import pymysql
+mysql_server="localhost"
+
 class register():
 
     def registerfunc(self,*genre,**result):
@@ -43,7 +45,7 @@ class register():
         print(self.name,self.mailId,self.password,self.Action,self.Adventure,self.Animation,self.Comedy,self.Drama,self.Fantasy,self.Horror,
             self.Romance,self.Sci_Fi,self.Thriller)
         # Open database connection
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         # prepare a cursor object using cursor() method
         db.autocommit(False)
         cursor = db.cursor()

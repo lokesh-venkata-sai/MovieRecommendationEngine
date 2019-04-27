@@ -1,4 +1,5 @@
 import pymysql
+mysql_server="localhost"
 class update():
     def updatefunc(self,*genre,**result):
         self.username=result['username']
@@ -35,7 +36,7 @@ class update():
                 self.Sci_Fi = 1
             if item == "Thriller":
                 self.Thriller = 1
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         db.autocommit(False)
         cursor = db.cursor()
         sql = "update users set Action=%s,Adventure=%s,Animation=%s,Comedy=%s,Drama=%s,Fantasy=%s,Horror=%s,Romance=%s,Sci_Fi=%s,Thriller=%s where username=%s"

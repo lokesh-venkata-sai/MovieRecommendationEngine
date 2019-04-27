@@ -1,4 +1,6 @@
 import pymysql
+mysql_server="localhost"
+
 class singleMovie():
     def getGenre(self,*movie):
         genre=""
@@ -41,7 +43,7 @@ class singleMovie():
         return genre
 
     def getrating(self,mail,movie_id):
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select id from users where email=%s"
         value = (mail)
@@ -55,7 +57,7 @@ class singleMovie():
         except:
             print("Error: unable to fetch data")
         db.close()
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select rating from ratings where userID=%s && movieId=%s"
         value = (user_id,movie_id)
@@ -76,7 +78,7 @@ class singleMovie():
 
     def getAvgRating(self,movie_id):
         avg=""
-        db = pymysql.connect("localhost", "root", "lokesh1999", "movieRecommendataion")
+        db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
         sql = "select avg(rating) from ratings where movieId = %s"
         value = (int(movie_id))
