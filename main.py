@@ -154,11 +154,7 @@ def single(ID):
         y = homefile()
         results = y.homefunc()
         recommend = y.getrecommend(user_id)
-        print(user_id)
-        print("-----------single-----")
-        print(recommend)
         if recommend == None:
-            print("none")
             return render_template("singleMovie.html",movie=movie,genre=genre,id=ID,rating=rating,avg=avg,results1=recommend)
 
         return render_template("singleMovie.html",movie=movie,genre=genre,id=ID,rating=rating,avg=avg,results1=recommend)
