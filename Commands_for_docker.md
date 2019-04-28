@@ -23,3 +23,5 @@
 <li>$:docker pull sreekarreddy2307/movie_recommendation:latest</li>
 <li>$:docker pull sreekarreddy2307/mysql-image:latest</li>
 </ul>
+<h3><b>Use the Application on browser</b></h3>
+<ul><li>Can access on 192.168.99.100:3000</li></ul>
