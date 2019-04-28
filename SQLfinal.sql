@@ -5,7 +5,7 @@ email varchar(50) not null unique,
 password varchar(50) not null,
 Action	int,Adventure int,	Animation int, Comedy int,Drama int,Fantasy int,
 Horror int,Romance int,Sci_Fi	int,Thriller int)engine=InnoDB default charset=latin1 ;
-alter table users auto_increment=10000;
+alter table users auto_increment=1;
 
 create table movies(ID int primary key,	poster_url	varchar(200),Movie varchar(100),
 unknown int,Action	int,Adventure int,	Animation int,
