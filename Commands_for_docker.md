@@ -19,9 +19,9 @@
 <h3><b>Pull & Push image from docker hub</b></h3>
 <ul>
 <li>$:docker push sreekarreddy2307/movie_recommendation:latest</li>
-<li>$:docker push sreekarreddy2307/mysql-image:latest</li>
+<li>$:docker push sreekarreddy2307/sql-container:latest</li>
 <li>$:docker pull sreekarreddy2307/movie_recommendation:latest</li>
-<li>$:docker pull sreekarreddy2307/mysql-image:latest</li>
+<li>$:docker pull sreekarreddy2307/sql-container:latest</li>
 </ul>
 <h3><b>Use the Application on browser</b></h3>
 <ul><li>Can access on 192.168.99.100:3000</li></ul>
