@@ -173,12 +173,12 @@
                         </div>
                         {%endfor%}
                     {% elif (results1|length)|int ==0%}
-                        {% for i in range (0,6)%}
+                        {% for i in range (12,18)%}
                         <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2 ">
                             <div class="card">
-                                <img class="card-img-top img-responsive" src="img.png" style="height:100%;width:100%" alt="Alt image">
+                                <img class="card-img-top img-responsive" src="{{results[i][1]}}" style="height:100%;width:100%" alt="Alt image">
                                 <div class="card-body">
-                                    <a href="#" style="color:white"><h4 class="card-title">NO Movies</h4></a>
+                                    <a href="/single/{{results[i][0]}}" style="color:white"><h4 class="card-title">{{results[i][2]}}</h4></a>
                                 </div>
                             </div>
                         </div>
