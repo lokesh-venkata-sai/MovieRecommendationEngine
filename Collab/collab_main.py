@@ -33,8 +33,8 @@ def grad_function(grad):
     return np.vstack((grad_X, grad_theta)).flatten()
 
 
-def get_matrix(csv_file):
-    movies_dataset = pd.read_csv(csv_file, low_memory=False)
+def get_matrix(table,cnx):
+    movies_dataset = pd.read_sql_table(con=cnx,table_name='ratings')
     ratings = movies_dataset.values
     movie_ids = np.array(movies_dataset.iloc[:, 1].unique())
     no_movie_ids = movie_ids.max() + 1
@@ -53,9 +53,9 @@ def get_matrix(csv_file):
     return matrix
 
 
-def recommendations():
+def recommendations(cnx):
     global no_of_users, no_of_movies, no_of_features, ratings
-    ratings = get_matrix('ratings_filtered_510.csv')
+    ratings = get_matrix('ratings',cnx)
     no_of_users = ratings.shape[1]
     no_of_movies = ratings.shape[0]
     no_of_features = 15
@@ -86,7 +86,7 @@ def recommendations():
 
 
 if __name__ == "__main__":
-    x = recommendations()
-    cnx = create_engine('mysql+pymysql://root:lokesh1999@localhost:3306/movieRecommendation').connect()
+    cnx = create_engine('mysql+pymysql://root:lokesh1999@mysql-server:3306/movieRecommendation').connect()
+    x = recommendations(cnx)
     x.to_sql(con=cnx,name='recommend',if_exists='replace',dtype=None,index=True)
     print("done")
