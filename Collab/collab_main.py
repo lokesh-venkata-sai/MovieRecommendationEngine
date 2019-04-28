@@ -47,9 +47,9 @@ def get_matrix(table,cnx):
         var2 = (ratings[ratings[:, 0] == i])[:, 2]
         temp = np.zeros(no_movie_ids)
         temp[var1] = var2
-        matrix[i - 1] = temp
+        matrix[i - 1] = temp # Why i-1 ?
     matrix = matrix.transpose()
-    matrix = np.delete(matrix, 0, 0)
+    matrix = np.delete(matrix, 0, 0) #?
     return matrix
 
 
