@@ -10,7 +10,7 @@
 <h3><b>Run the Container</b></h3>
 <ul>
 <li>$: docker run -d --name mysql-server --network mynetwork -e MYSQL_ROOT_PASSWORD=lokesh1999 mysql</li>
-<li>$: docker run -it --network mynetwork --name webapplication -p 8080:5000 sreekar/app</li>
+<li>$: docker run -it --network mynetwork --name webapplication -p 3000:5000 sreekar/app</li>
 </ul>
 <h3>Use the application</h3>
 <ul>
