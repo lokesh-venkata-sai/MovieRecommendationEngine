@@ -16,3 +16,10 @@
 <ul>
 <li>$: curl localhost:8080</li>
 </ul>
+<h3><b>Pull & Push image from docker hub</b></h3>
+<ul>
+<li>$:docker push sreekarreddy2307/movie_recommendation:latest</li>
+<li>$:docker push sreekarreddy2307/mysql-image:latest</li>
+<li>$:docker pull sreekarreddy2307/movie_recommendation:latest</li>
+<li>$:docker pull sreekarreddy2307/mysql-image:latest</li>
+</ul>
