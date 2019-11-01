@@ -16,6 +16,10 @@
 <ul>
 <li>$: curl localhost:8080</li>
 </ul>
+<h3><b>link local image and repository</b></h3>
+<ul>
+<li>$:docker tag local-image:tagname username/new-repo:tagname </li>
+</ul>
 <h3><b>Pull & Push image from docker hub</b></h3>
 <ul>
 <li>$:docker push sreekarreddy2307/movie_recommendation:latest</li>
