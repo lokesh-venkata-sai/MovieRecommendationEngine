@@ -16,6 +16,10 @@
 <ul>
 <li>$: curl localhost:8080</li>
 </ul>
+<h3><b>link local image and repository</b></h3>
+<ul>
+<li>$:docker tag local-image:tagname username/new-repo:tagname </li>
+</ul>
 <h3><b>Pull & Push image from docker hub</b></h3>
 <ul>
 <li>$:docker push sreekarreddy2307/movie_recommendation:latest</li>
@@ -25,3 +29,6 @@
 </ul>
 <h3><b>Use the Application on browser</b></h3>
 <ul><li>Can access on 192.168.99.100:3000</li></ul>
+<h3>In case if docker-compose is used</h3>
+<ul><li>$:docker-compose up --build</li>
+<li>$:curl localhost:3000</li></ul>

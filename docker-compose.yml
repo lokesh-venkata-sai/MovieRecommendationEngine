@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+        webapp:
+         image: sreekarreddy2307/movie_recommendation:latest
+         ports:
+                 - 3000:5000
+         depends_on:
+                 - mysql_server
+
+        mysql_server:
+         image: sreekarreddy2307/sql-container:latest
+         container_name: mysql_server
+         environment:
+                 MYSQL_ROOT_PASSWORD: 'lokesh1999'
+         ports:
+                - 3306:3306

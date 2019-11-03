@@ -1,6 +1,5 @@
 import pymysql
 mysql_server="localhost"
-
 class homefile():
     def homefunc(self):
         db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
