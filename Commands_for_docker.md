@@ -29,3 +29,6 @@
 </ul>
 <h3><b>Use the Application on browser</b></h3>
 <ul><li>Can access on 192.168.99.100:3000</li></ul>
+<h3>In case if docker-compose is used</h3>
+<ul><li>$:docker-compose up --build</li>
+<li>$:curl localhost:3000</li></ul>
