@@ -1,5 +1,5 @@
 import pymysql
-mysql_server="localhost"
+mysql_server="0.0.0.0"
 
 class login():
     def validateLogin(self,**data):

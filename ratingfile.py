@@ -1,5 +1,5 @@
 import pymysql
-mysql_server="localhost"
+mysql_server="0.0.0.0"
 class ratingfile:
     def ratingfunc(self,user_id,**result):
         db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
