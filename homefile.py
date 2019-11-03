@@ -1,5 +1,5 @@
 import pymysql
-mysql_server="http://mysql_server:3306"
+mysql_server="mysql://mysql_server:3306"
 class homefile():
     def homefunc(self):
         db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
