@@ -1,5 +1,5 @@
 import pymysql
-mysql_server="mysql://mysql_server:3306"
+mysql_server="mysql_server"
 class update():
     def updatefunc(self,*genre,**result):
         self.username=result['username']
