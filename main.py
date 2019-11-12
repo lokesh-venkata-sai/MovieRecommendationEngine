@@ -245,4 +245,4 @@ if __name__ == "__main__":
     app.secret_key = os.urandom(24)
     app.permanent_session_lifetime = timedelta(minutes=10)
     #app.run(debug=True)
-    app.run(debug=False,host="0.0.0.0")
+    app.run(debug=False)
