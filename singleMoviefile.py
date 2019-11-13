@@ -36,6 +36,7 @@ class singleMovie():
             genre+=" Sci_Fi"
         if movie[0][19]==1:
             genre+=" Thriller"
+
         if movie[0][20]==1:
             genre+=" War"
         if movie[0][21]==1:
