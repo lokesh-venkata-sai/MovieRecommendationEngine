@@ -1,5 +1,5 @@
 import pymysql
-mysql_server="mysql_server"
+mysql_server="localhost"
 
 class register():
 

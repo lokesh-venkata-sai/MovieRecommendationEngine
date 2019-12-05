@@ -11,7 +11,7 @@ from singleMoviefile import singleMovie
 from ratingfile import ratingfile
 app = Flask(__name__)
 
-mysql_server="mysql_server"
+mysql_server="localhost"
 # app.config.from_pyfile("config.cfg")
 @app.route('/')
 @app.route('/<login>')
@@ -119,6 +119,7 @@ def registerForm():
 @app.route('/single')
 @app.route('/single/<ID>')
 def single(ID):
+    print(ID)
     if g.mail:
         db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
@@ -244,5 +245,5 @@ def dropsession():
 if __name__ == "__main__":
     app.secret_key = os.urandom(24)
     app.permanent_session_lifetime = timedelta(minutes=10)
-    #app.run(debug=True)
-    app.run(debug=False,host="0.0.0.0")
+    app.run(debug=True)
+    #app.run(debug=False,host="0.0.0.0")
