@@ -119,6 +119,7 @@ def registerForm():
 @app.route('/single')
 @app.route('/single/<ID>')
 def single(ID):
+    print(ID)
     if g.mail:
         db = pymysql.connect(mysql_server, "root", "lokesh1999", "movieRecommendation")
         cursor = db.cursor()
