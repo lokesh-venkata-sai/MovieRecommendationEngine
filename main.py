@@ -11,7 +11,7 @@ from singleMoviefile import singleMovie
 from ratingfile import ratingfile
 app = Flask(__name__)
 
-mysql_server="mysql_server"
+mysql_server="localhost"
 # app.config.from_pyfile("config.cfg")
 @app.route('/')
 @app.route('/<login>')
